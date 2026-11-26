@@ -27,8 +27,8 @@ public class UrlsController : ControllerBase
         return Created("", new { Code = code, Url = request.Url });
     }
 
-    [HttpGet("{code}")]
-    public new IActionResult Redirect(string code)
+    [HttpGet("/{code}")]
+    public IActionResult RedirectToUrl(string code)
     {
         var originalUrl = _service.GetOriginalUrl(code);
         if (originalUrl == null)
